@@ -1,6 +1,6 @@
-# meishi
+# 美食杰
 
-> A Vue.js project
+> 一个美食网站
 
 ## Build Setup
 
