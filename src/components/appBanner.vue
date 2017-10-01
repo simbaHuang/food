@@ -1,6 +1,8 @@
 <template>
   <div class="banner">
+    <!-- 轮播图容器 -->
     <div class="banner-container">
+      <!-- 单屏内容 -->
       <div class="banner-box" v-for="banner in simul.banner">
         <p class="banner-tit">{{ banner.title }}</p>
         <div class="banner-con">
@@ -16,6 +18,22 @@
            </ul>
         </div>
       </div>
+    </div>
+    <!-- 两侧的遮罩层 -->
+    <div class="banner-mask banner-mask-left"></div>
+    <div class="banner-mask banner-mask-right"></div>
+    <!-- 左右箭头 -->
+    <div class="banner-btn banner-btn-prev"></div>
+    <div class="banner-btn banner-btn-next"></div>
+    <!-- 底部标注 -->
+    <div class="banner-mark">
+      <!-- 每屏对应的标注列表 -->
+      <ul class="banner-mark-list">
+        <li v-for="mark in simul.banner"></li>
+      </ul>
+      <!-- 标注的遮罩层 -->
+      <div class="banner-mark-mask banner-mark-mask-left"></div>
+      <div class="banner-mark-mask banner-mark-mask-right"></div>
     </div>
   </div>
 </template>
@@ -160,16 +178,21 @@
 </script>
 
 <style lang="scss">
+  @mixin banner-con{
+    margin: 0 auto;
+    width: 990px;
+  }
+
   .banner{
-    width: 100%;
+    position: relative;
+    @include banner-con;
   }
   .banner-container{
     width: 4950px;
   }
   .banner-box{
     display: inline-block;
-    margin: 0 auto;
-    width: 990px;
+    @include banner-con;
   }
   .banner-tit{
     height: 120px;
@@ -216,6 +239,76 @@
           color: #fff;
         }
       }
+    }
+  }
+  
+  /* 两侧遮罩 */
+  .banner-mask{
+    display: block;
+    position: absolute;
+    top: 120px;
+    width: 990px;
+    height: 330px;
+    background: #fff;
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+    z-index: 100;
+  }
+  .banner-mask-left{
+    left: -990px;
+  }
+  .banner-mask-right{
+    left: 990px;
+  }
+
+  /* 两侧按钮 */
+  .banner-btn{
+    position: absolute;
+    top: 50%;
+    margin-top: -35px;
+    width: 170px;
+    height: 70px;
+    background-color: rgba(0, 0, 0, .6);
+    cursor: pointer;
+  }
+  .banner-btn-prev{
+    left: -70px;
+  }
+  .banner-btn-next{
+    right: -70px;
+  }
+
+  /* 标注 */
+  .banner-mark{
+    position: relative;
+    @include banner-con;
+    height: 52px;
+    background-color: #fff;
+    .banner-mark-mask{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 990px;
+      border-top: 4px solid #aaa;
+      background: url(../images/banner-mark-bg.gif) repeat-x scroll 0 0 #fff;
+    }
+    .banner-mark-mask-left{
+      left: -990px;
+    }
+    .banner-mark-mask-right{
+      left: 990px;
+    }
+  }
+  .banner-mark-list{
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    li {
+      display: inline-block;
+      width: 198px;
+      height: 100%;
+      border-top: 4px solid #aaa;
+      background: url(../images/banner-mark-bg.gif) no-repeat scroll 0 0;
     }
   }
 </style>
