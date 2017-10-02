@@ -4,7 +4,7 @@
     <div class="banner-container">
       <!-- 单屏内容 -->
       <div class="banner-box" v-for="banner in simul.banner">
-        <p class="banner-tit">{{ banner.title }}</p>
+        <p class="con-tit">{{ banner.title }}</p>
         <div class="banner-con">
            <ul class="banner-con-list">
              <li v-for="food in banner.food">
@@ -23,8 +23,8 @@
     <div class="banner-mask banner-mask-left"></div>
     <div class="banner-mask banner-mask-right"></div>
     <!-- 左右箭头 -->
-    <div class="banner-btn banner-btn-prev"></div>
-    <div class="banner-btn banner-btn-next"></div>
+    <div class="banner-btn banner-btn-prev" @click="switchPage('prev')"></div>
+    <div class="banner-btn banner-btn-next" @click="switchPage('next')"></div>
     <!-- 底部标注 -->
     <div class="banner-mark">
       <!-- 每屏对应的标注列表 -->
@@ -173,33 +173,45 @@
           ]
         }
       }
+    },
+    mounted () {
+      console.log(this)
+    },
+    methods: {
+      switchPage (type) {
+        console.log(type)
+      }
     }
   }
 </script>
 
 <style lang="scss">
-  @mixin banner-con{
+  @mixin con-auto{
     margin: 0 auto;
     width: 990px;
   }
 
   .banner{
     position: relative;
-    @include banner-con;
+    @include con-auto;
   }
   .banner-container{
+    position: relative;
     width: 4950px;
+    height: 450px;
   }
   .banner-box{
     display: inline-block;
-    @include banner-con;
+    @include con-auto;
   }
-  .banner-tit{
+  .con-tit{
+    position: relative;
     height: 120px;
     line-height: 120px;
     text-align: center;
     font-size: 24px;
     color: #222;
+    @include con-auto;
   }
   .banner-con-list{
     font-size: 0;
@@ -270,6 +282,7 @@
     height: 70px;
     background-color: rgba(0, 0, 0, .6);
     cursor: pointer;
+    z-index: 101;
   }
   .banner-btn-prev{
     left: -70px;
@@ -281,9 +294,9 @@
   /* 标注 */
   .banner-mark{
     position: relative;
-    @include banner-con;
     height: 52px;
     background-color: #fff;
+    @include con-auto;
     .banner-mark-mask{
       position: absolute;
       top: 0;
