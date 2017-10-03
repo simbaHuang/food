@@ -19,25 +19,6 @@
 </script>
 
 <style lang="scss">
-  // @import './style/base/_base';
-  // 
-  body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin: 0; padding: 0; }
-  h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: normal;}
-  table{border-collapse: collapse;border-spacing: 0;}
-  fieldset, img{border: 0;}
-  abbr, acronym{border: 0;}
-  address, caption, cite, code, dfn, em, strong, th, var {font-style: normal;font-weight: normal;}
-  input, select, textarea { -webkit-tap-highlight-color: rgba(0,0,0,0); border: 0; border-radius: 0; }
-  input, img { vertical-align: middle;outline: none;}
-  body { background-color: #ececec; color: #787878; font-family: "Microsoft YaHei"; font-size: 14px; display: block;}
-  ::-webkit-scrollbar {width: 5px; height: 5px;-webkit-transition:1s;}
-  ::-webkit-scrollbar-thumb {background-color: #a7afb4;background-clip: padding-box;min-height: 28px;}
-  ::-webkit-scrollbar-thumb:hover {background-color: #525252;background-clip: padding-box; min-height: 28px;}
-  ::-webkit-scrollbar-track-piece {background-color: #ccd0d2;}
-  ul, ol, li { list-style: none;}
-
-  a:link{text-decoration: none; color:#787878;}
-  a:visited{text-decoration: none; color:#787878;}
-  a:hover{text-decoration: none; color:#787878;}
+  @import './style/base/base.scss';
 
 </style>

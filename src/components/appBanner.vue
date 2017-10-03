@@ -175,7 +175,6 @@
       }
     },
     mounted () {
-      console.log(this)
     },
     methods: {
       switchPage (type) {
@@ -186,10 +185,7 @@
 </script>
 
 <style lang="scss">
-  @mixin con-auto{
-    margin: 0 auto;
-    width: 990px;
-  }
+  @import '../style/base/common.scss';
 
   .banner{
     position: relative;

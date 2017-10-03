@@ -38,16 +38,15 @@
 	    this.$api.get('topics', null, r => {
 	      console.log(r)
 	    })
+	  },
+	  data () {
 	  }
 	}
 </script>
 
 <style lang="scss">
-  // @import './style/base/_base.scss';
-  @mixin con-auto{
-    margin: 0 auto;
-    width: 990px;
-  }
+  @import '../style/base/common.scss';
+
   .container{
     background: #fae8c8;
   }
