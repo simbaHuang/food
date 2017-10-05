@@ -3,3 +3,14 @@
   margin: 0 auto;
   width: 990px;
 }
+
+@mixin in-block{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@mixin ellipsis{
+  text-overflow: ellipsis;
+  white-space:nowrap; 
+  overflow: hidden;
+}
