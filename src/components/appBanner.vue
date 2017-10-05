@@ -230,6 +230,10 @@
           margin-top: 12px;
           font-size: 24px;
           color: #666;
+          &:hover{
+            color: #ff3232;
+            text-decoration: underline;
+          }
         }
         .banner-con-info-intro{
           margin-top: 5px;
