@@ -2,37 +2,9 @@
   	<div class="container">
   		<!-- banner -->
       <AppBanner></AppBanner>
+
 			<!-- 首页的广告 -->
-			<div class="home-advertise">
-				<!-- tit -->
-        <p class="con-tit">
-        	<span>10月，晚秋时节润燥滋阴</span>
-        	<a class="con-tit-btn" target="_blank" href="javascript:">更多菜单 &gt;</a>
-        </p>
-        <!-- 容器 -->
-        <div class="home-advertise-container">
-        	<!-- 内容盒子 -->
-        	<div class="home-advertise-box">
-	        	<!-- 单屏内容 -->
-	        	<div class="home-advertise-single">
-		        	<ul class="home-advertise-list">
-		        		<li v-for="advert in advertiseList">
-                  <!-- img -->
-		        			<a href="javascript:"><img :src="advert.imgUrl" :alt="advert.tit"></a>
-                  <!-- info -->
-                  <div class="home-advertise-info">
-                    <a class="home-advertise-name">{{ advert.name }}</a>
-                    <p class="home-advertise-tit">{{ advert.tit }}</p>
-                  </div>
-		        		</li>
-		        	</ul>
-	        	</div>
-        	</div>
-        	<!-- 左右按钮 -->
-        	<a class="home-advertise-btn home-advertise-btn-prev" href="javascript:"></a>
-        	<a class="home-advertise-btn home-advertise-btn-next" href="javascript:"></a>
-        </div>
-			</div>
+			<AppSwiperColThree></AppSwiperColThree>
 
 			<!-- 当月食材推荐 -->
 			<div class="home-recommend">
@@ -60,69 +32,36 @@
 			</div>
 
       <!-- 最新菜谱 -->
-      <div class="home-latest-recipes">
-        <!-- tit -->
+      <AppSwiperColFour></AppSwiperColFour>
+
+      <!-- 健康新闻 -->
+      <div class="home-news">
+      	<!-- tit -->
         <p class="con-tit">
-          <span>最新菜谱</span>
-          <a class="con-tit-btn" target="_blank" href="javascript:">更多菜单 &gt;</a>
+        	<span>健康新闻</span>
+        	<a class="con-tit-btn" target="_blank" href="javascript:">更多健康资讯 &gt;</a>
         </p>
-        <!-- 容器 -->
-        <div class="home-latest-container">
-          <!-- 内容 -->
-          <ul class="home-latest-list">
-            <li v-for="latest in latestList">
-              <a class="home-latest-con" href="javascript:">
-                <img class="home-latest-img" width="100%" height="100%" :src="latest.imgUrl" :alt="latest.name">
-                <!-- 显示信息 -->
-                <div class="">
-                  
-                </div>
-              </a>
-            </li>
-          </ul>
-        </div>
+        <ul class="home-news-list">
+        	<li v-for="news in newsList">
+        		<a class="news-img" href="javascript:"><img width="160" height="160"></a>
+        		<div class="news-con">
+        			<p v-for="con in news.data" class="news-name"><a href="javscript:">{{ con.title }}</a></p>
+        		</div>
+        		<span class="new-type">{{ news.type }}</span>
+        	</li>
+        </ul>
       </div>
   	</div>
 </template>
 
 <script>
 import AppBanner from '../components/appBanner.vue'
+import AppSwiperColThree from '../components/appSwiperColThree.vue'
+import AppSwiperColFour from '../components/appSwiperColFour.vue'
 export default {
-  components: { AppBanner },
+  components: { AppBanner, AppSwiperColThree, AppSwiperColFour },
   data () {
     return {
-      advertiseList: [
-        {
-          name: '这里有一份超详尽的假期派对攻略',
-          tit: '超详尽的派对攻略',
-          imgUrl: 'http://images.meishij.net/p/20170927/eb45ef48e2be5d6b9fd6942a3046861a.jpg'
-        },
-        {
-          name: '中秋就要到了，然而',
-          tit: '小编们却为月饼掐了一场架',
-          imgUrl: 'http://images.meishij.net/p/20170925/6ac39c5f33030ec9d1d5d678d72fd3ec.jpg'
-        },
-        {
-          name: '一学即会的水煮肉片',
-          tit: '水煮肉片一学即会',
-          imgUrl: 'http://site.meishij.net/p2/20170928/20170928102723_514.jpg'
-        },
-        {
-          name: '秋季养生蔬菜就选这五...',
-          tit: '秋季养生蔬菜就选这五种',
-          imgUrl: 'http://site.meishij.net/p2/20170928/20170928102237_755.jpg'
-        },
-        {
-          name: '盖浇饭，填饱肚子最重...',
-          tit: '盖浇饭，填饱肚子最重要',
-          imgUrl: 'http://site.meishij.net/p2/20170926/20170926140512_647.jpg'
-        },
-        {
-          name: '选蟹、烹饪有何门道？...',
-          tit: '60s教你吃对大闸蟹',
-          imgUrl: 'http://site.meishij.net/p2/20170920/20170920134551_173.jpg'
-        }
-      ],
       recommendList: [
         {
           name: '水果',
@@ -273,83 +212,74 @@ export default {
           ]
         }
       ],
-      latestList: [
+      newsList: [
         {
-          name: '法式紫薯派',
-          author: '余甘果蜜',
-          comments: 5,
-          sentiment: 16221,
-          step: 8,
-          time: 15,
-          practice: '炸',
-          taste: '甜味',
-          imgUrl: 'http://site.meishij.net/r/174/213/2303424/a2303424_150737235953308.jpg'
+          type: '食品安全',
+          data: [
+            {
+              title: '冻鱼保鲜保营养吗?',
+              imgUrl: 'http://images.meishij.net/p/20170123/b43be469069cab07d99b486cc326a6bf_150x150.jpg'
+            },
+            {
+              title: '哪些啤酒谣言还在飞?',
+              imgUrl: 'http://images.meishij.net/p/20170122/c6073156c81757ec3a7757371242be19_150x150.jpg'
+            },
+            {
+              title: '凉拌或油炸四季豆易中毒',
+              imgUrl: 'http://images.meishij.net/p/20170111/2345a423207f6ec91011ef9b71ada0c3_150x150.jpg'
+            }
+          ]
         },
         {
-          name: '无蛋可可螺旋吐司',
-          author: '喜爱豆子',
-          comments: 5,
-          sentiment: 2394,
-          step: 9,
-          time: 15,
-          practice: '烘培',
-          taste: '其他口味',
-          imgUrl: 'http://site.meishij.net/r/75/127/4906825/a4906825_150737187413411.jpg'
+          type: '文化典故',
+          data: [
+            {
+              title: '南方春节食物的寓意?',
+              imgUrl: 'http://images.meishij.net/p/20170122/0066c212db9fe02c82a1f3906ff0d40c_150x150.jpg'
+            },
+            {
+              title: '轻食主义到底是什么呢?',
+              imgUrl: 'http://images.meishij.net/p/20170110/127fc7851fb456fce224e948ae5d36ff_150x150.jpg'
+            },
+            {
+              title: '腊八除了吃腊八粥还吃什么？',
+              imgUrl: 'http://images.meishij.net/p/20170104/41cc4e226b54d1f7d210b4c81229c70e_150x150.jpg'
+            }
+          ]
         },
         {
-          name: '大闸蟹溜蛋',
-          author: '柔蓝水晶',
-          comments: 5,
-          sentiment: 16221,
-          step: 8,
-          time: 15,
-          practice: '炒',
-          taste: '家常味',
-          imgUrl: 'http://site.meishij.net/r/83/142/410583/a410583_150737118116813.jpg'
+          type: '健康指南',
+          data: [
+            {
+              title: '为什么网红们都爱丘比沙拉汁',
+              imgUrl: 'http://images.meishij.net/p/20170713/213df5fb8faa20d77cdc6f96798e17fc_150x150.jpg'
+            },
+            {
+              title: '考前饮食三大忌，这些坑你不要踩',
+              imgUrl: 'http://images.meishij.net/p/20170605/54aad9503158cf80a783eb13657079ff_150x150.jpg'
+            },
+            {
+              title: '年末应酬多，喝酒前后饮食有讲究',
+              imgUrl: 'http://images.meishij.net/p/20170122/8e00d6a823a08798d3592bdb3597c49d_150x150.jpg'
+            }
+          ]
         },
         {
-          name: '苦瓜苹果饮',
-          author: '余甘果蜜',
-          comments: 5,
-          sentiment: 16221,
-          step: 8,
-          time: 15,
-          practice: '其他工艺',
-          taste: '其他口味',
-          imgUrl: 'http://site.meishij.net/r/174/213/2303424/a2303424_150737068931194.jpg'
-        },
-        {
-          name: '辣椒木耳炒蛋',
-          author: '心随彧动',
-          comments: 5,
-          sentiment: 16221,
-          step: 8,
-          time: 15,
-          practice: '炒',
-          taste: '香辣味',
-          imgUrl: 'http://site.meishij.net/r/216/197/6174466/a6174466_150736713955415.jpg'
-        },
-        {
-          name: '豉香蟹',
-          author: '飘雪的季节(来自腾讯的网友)',
-          comments: 5,
-          sentiment: 16221,
-          step: 8,
-          time: 15,
-          practice: '炒',
-          taste: '香辣味',
-          imgUrl: 'http://site.meishij.net/r/134/61/5140384/a5140384_150736675971749.jpg'
-        },
-        {
-          name: '麻酱佛手瓜丝莲藕卷',
-          author: '上海五香豆',
-          comments: 5,
-          sentiment: 16221,
-          step: 8,
-          time: 15,
-          practice: '煮',
-          taste: '家常味',
-          imgUrl: 'http://site.meishij.net/r/178/57/3764428/a3764428_150736514942427.jpg'
+          type: '新鲜资讯',
+          data: [
+            {
+              title: '2016年食品抽检合格率96.8%',
+              imgUrl: 'http://images.meishij.net/p/20170122/39ebc5c8da45601eb70dce1cc3bf1ec3_150x150.jpg'
+            },
+            {
+              title: '【探索·发现】格鲁吉亚',
+              imgUrl: 'http://images.meishij.net/p/20161230/d1447a05af4e8ee1f55250af50ee69f5_150x150.jpg'
+            },
+            {
+              title: '扫码获得的减肥代餐品靠谱吗?',
+              imgUrl: 'http://images.meishij.net/p/20161206/17d854c44361daafe31651f67cd32b0a_150x150.jpg'
+            }
+          ]
         }
       ]
     }
@@ -382,77 +312,6 @@ export default {
   	color: #666;
   	&:hover{
   		color: #ff3232;
-  	}
-  }
-
-	/* 首页广告部分 */
-  .home-advertise-container{
-  	position: relative;
-    @include con-auto;
-  }
-  .home-advertise-list{
-    font-size: 0;
-    li{
-    	margin-right: 21px;
-    	margin-bottom: 20px;
-      width: 316px;
-      @include in-block;
-    }
-    li:nth-child(3n){
-    	margin-right: 0;
-    }
-    .home-advertise-info{
-      position: relative;
-      padding: 10px 20px;
-      background-color: #fff;
-      &:before{
-        content: '';
-        position: absolute;
-        top: -10px;
-        left: 0;
-        right: 0;
-        height: 10px;
-        background: url(../images/index-adver-bg.gif) no-repeat scroll center top;
-      }
-      .home-advertise-name{
-      	width: 100%;
-        color: #333;
-        font-size: 24px;
-        cursor: pointer;
-        @include in-block;
-        @include ellipsis;
-        &:hover{
-          color: #ff3232;
-          text-decoration: underline;
-        }
-      }
-      .home-advertise-tit{
-        margin-top: 5px;
-        margin-bottom: 5px;
-        font-size: 12px;
-      }
-    }
-  }
-  .home-advertise-btn{
-  	position: absolute;
-  	top: 50%;
-  	margin-top: -65px;
-  	width: 130px;
-  	height: 130px;
-  	background: url(../images/index-arrow.gif) no-repeat scroll 0 0;
-  }
-  .home-advertise-btn-prev{
-  	left: -130px;
-  	background-position: 0 0;
-  	&:hover{
-  		background-position: -130px 0;
-  	}
-  }
-  .home-advertise-btn-next{
-  	right: -130px;
-  	background-position: 0 -130px;
-  	&:hover{
-  		background-position: -130px -130px;
   	}
   }
 
@@ -527,23 +386,51 @@ export default {
 		}
 	}
 
-  /* 最新菜谱 */
-  .home-latest-recipes{
+	/* 健康新闻 */
+	.home-news{
     @include con-auto;
-  }
-  .home-latest-list{
-    li{
-      width: 232.5px;
-      margin-right: 20px;
-      margin-bottom: 20px;
-      @include in-block;
-    }
-    li:nth-child(4n){
-      margin-right: 0;
-    }
-    .home-latest-img{
-      width: 232.5px;
-      height: 232.5px;
-    }
-  }
+	}
+	.home-news-list{
+		li{
+			position: relative;
+			margin-right: 20px;
+			margin-bottom: 20px;
+			width: 485px;
+			height: 160px;
+			background-color: #fff;
+			@include in-block;
+			.new-type{
+				position: absolute;
+		    right: 10px;
+		    top: -6px;
+		    padding: 0 15px;
+		    height: 30px;
+		    line-height: 30px;
+		    background: #60a531;
+		    font-size: 12px;
+		    color: #fff;
+			}
+			.news-img{
+				float: left;
+			}
+			.news-con{
+				margin-left: 160px;
+			}
+			.news-name{
+				padding-left: 15px;
+				height: 49px;
+				line-height: 49px;
+				border-bottom: 1px solid #eee;
+				@include ellipsis;
+			}
+			.news-name.active{
+				height: 59px;
+				line-height: 59px;
+			}
+		}
+		li:nth-child(2n){
+			margin-right: 0;
+		}
+	}
+
 </style>

@@ -187,18 +187,18 @@
         }
       }
     }
-      .head-nav-sub-list-list{
-        li{
-          margin-bottom: 0;
-          a{
-            margin-top: 5px;
-            padding: 3px;
-            font-size: 12px;
-            &:hover{
-              background: #ff3232;
-              color: #fff;
-            }
+    .head-nav-sub-list-list{
+      li{
+        margin-bottom: 0;
+        a{
+          margin-top: 5px;
+          padding: 3px;
+          font-size: 12px;
+          &:hover{
+            background: #ff3232;
+            color: #fff;
           }
         }
       }
+    }
 </style>
