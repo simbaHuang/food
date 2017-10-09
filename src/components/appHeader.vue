@@ -1,10 +1,22 @@
 <template>
   <div class="head">
-    <!-- 顶部搜索 -->
-    <div class="head-search">
-      <div class="head-search-con">
-        <input class="head-search-ipt" placeholder="请输入菜谱/食材/菜单/作者" type="text">
-        <a class="head-search-btn" href="javascript:">搜索</a>
+    <!-- 顶部 -->
+    <div class="head-top">
+      <div class="head-top-con">
+        <!-- logo -->
+        <a class="head-logo" href="#/">
+          
+        </a>
+        <!-- 顶部搜索 -->
+        <div class="head-search">
+          <input class="head-search-ipt" placeholder="请输入菜谱/食材/菜单/作者" type="text">
+          <a class="head-search-btn" href="javascript:">搜索</a>
+        </div>
+        <!-- 登陆框 -->
+        <div class="head-login">
+          <a class="head-login-btn" href="#/register">注册</a>
+          <a class="head-login-btn" href="#/login">登录</a>
+        </div>
       </div>
     </div>
     <!-- 菜单导航 -->
@@ -84,14 +96,47 @@
 </script>
 
 <style lang="scss">
-  .head-search{
-    position: relative;
+  @import '../style/base/common.scss';
+
+  .head-top{
     margin: 0px auto;
     width: 100%;
     height: 130px;
     background: #c90000;
     overflow: hidden;
-    .head-search-con{
+    .head-top-con{
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+      @include con-auto;
+    }
+    .head-login,
+    .head-logo{
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: auto;
+      line-height: 130px;
+    }
+    .head-login-btn{
+      padding: 0 10px;
+      height: 30px;
+      line-height: 30px;
+      color: #fff;
+      border-radius: 5px;
+      @include in-block;
+      &:hover{
+        background-color: rgba(0, 0, 0, .3);
+      }
+    }
+    .head-logo{
+      right: auto;
+      left: 0;
+      width: 200px;
+      cursor: pointer;
+    }
+    .head-search{
       margin: 48px auto;
       width: 430px;
       border: 2px solid #fff;
