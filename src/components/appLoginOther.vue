@@ -55,7 +55,7 @@
       margin: 0 20px;
       width: 108px;
       height: 108px;
-      background: url(https://css.meishij.net/web1/images/nl_dsficon1.png) no-repeat scroll;
+      background: url(../images/login-other.png) no-repeat scroll;
       @include in-block;
     }
     .login-other-btn-green{
@@ -81,7 +81,7 @@
       height: 69px;
       text-align: center;
       width: 100%;
-      background: url(https://css.meishij.net/web1/images/nl_or.png) center no-repeat;
+      background: url(../images/login-other-or.png) center no-repeat;
     }
   }
 </style>

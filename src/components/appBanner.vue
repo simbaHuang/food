@@ -10,9 +10,9 @@
              <li v-for="food in banner.food">
               <img width="100%" height="100%" :src="food.imgUrl" :alt="food.name">
               <div class="banner-con-info">
-                <p class="banner-con-info-name">{{ food.name }}</p>   
+                <p class="banner-con-info-name">{{ food.name }}</p>
                 <p class="banner-con-info-intro">{{ food.introduce }}</p>
-                <span class="banner-con-info-tit">{{ food.title }}</span>   
+                <span class="banner-con-info-tit">{{ food.title }}</span>
               </div>
              </li>
            </ul>
@@ -253,7 +253,7 @@
       }
     }
   }
-  
+
   /* 两侧遮罩 */
   .banner-mask{
     display: block;
