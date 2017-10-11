@@ -23,8 +23,8 @@
                     <p class="swiper-col-four-author">{{ swiper.author }}</p>
                   </div>
                   <div class="swiper-col-four-info-bottom">
-                    <p class="swiper-col-four-text">{{ swiper.step }} 步 / 大概 {{ swiper.time }} 分钟</p>
-                    <p class="swiper-col-four-text">{{ swiper.practice }} / {{ swiper.taste }}</p>
+                    <p class="swiper-col-four-text bg-1">{{ swiper.step }} 步 / 大概 {{ swiper.time }} 分钟</p>
+                    <p class="swiper-col-four-text bg-2">{{ swiper.practice }} / {{ swiper.taste }}</p>
                   </div>
                 </div>
               </a>
@@ -149,25 +149,57 @@
     li:nth-child(4n){
       margin-right: 0;
     }
+    .swiper-col-four-con{
+      width: 100%;
+      height: 100%;
+      @include in-block;
+      &:hover{
+        .swiper-col-four-info-top{
+          top: -100px;
+        }
+        .swiper-col-four-info-bottom{
+          top: 0;
+        }
+      }
+    }
     .swiper-col-four-img{
       width: 232.5px;
       height: 232.5px;
     }
     .swiper-col-four-info{
-      padding: 0 15px;
+      position: relative;
       height: 100px;
       overflow: hidden;
       background-color: #fff;
     }
     .swiper-col-four-info-top,
     .swiper-col-four-info-bottom{
-      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 0 15px;
       height: 100%;
       overflow: hidden;
+      @include transition;
     }
     .swiper-col-four-info-bottom{
+      top: 100px;
       background-color: #eee;
       color: #666;
+      .swiper-col-four-text{
+        margin-top: 20px;
+        padding-left: 40px;
+        height: 20px;
+        line-height: 20px;
+        background: url(../images/list-icon.png) no-repeat scroll;
+      }
+      .bg-1{
+        background-position: 0 -130px;
+      }
+      .bg-2{
+        background-position: 0 -50px;
+      }
     }
     .swiper-col-four-name,
     .swiper-col-four-txt,

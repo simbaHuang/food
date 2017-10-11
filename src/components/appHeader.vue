@@ -23,7 +23,7 @@
     <div class="head-nav">
       <ul class="head-nav-list">
         <li v-for="nav in simul.nav">
-          <a href="javascript:">
+          <a :href="nav.url">
             <strong>{{ nav.name }}</strong>
             <!-- 下拉子菜单 -->
             <div class="head-nav-sub" v-if="nav.children">
@@ -50,9 +50,10 @@
       return {
         simul: {
           nav: [
-            { name: '首页' },
+            { name: '首页', url: '#/' },
             {
               name: '菜谱大全',
+              url: '#/recipe',
               children: [
                 {
                   name: '家常菜谱',

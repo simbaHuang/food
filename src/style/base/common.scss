@@ -15,3 +15,15 @@
   white-space:nowrap; 
   overflow: hidden;
 }
+
+@mixin transition($time: .5s){
+	transition: all $time;
+	-webkit-transition: all $time;
+	-moz-transition: all $time;
+	-ms-transition: all $time;
+}
+
+@mixin border-radius($radius: 3px){
+	border-radius: $radius;
+	-webkit-border-radius: $radius;
+}
