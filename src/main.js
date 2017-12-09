@@ -5,6 +5,12 @@ import App from './App'
 import router from './router'
 // 引用API文件
 import api from './api/index.js'
+// 引入iview
+import iView from 'iview'
+import 'iview/dist/styles/iview.css'    // 使用 CSS
+
+// 使用iview
+Vue.use(iView)
 // 将API方法绑定到全局
 Vue.prototype.$api = api
 

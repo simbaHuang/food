@@ -139,7 +139,7 @@
     }
     .head-search{
       margin: 48px auto;
-      width: 430px;
+      width: 419px;
       border: 2px solid #fff;
       font-size: 0;
       border-radius: 3px;
@@ -153,7 +153,7 @@
     .head-search-ipt{
       padding: 8px;
       width: 326px;
-      height: 14px;
+      height: 30px;
     }
     .head-search-btn{
       width: 88px;

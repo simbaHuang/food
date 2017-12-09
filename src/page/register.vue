@@ -3,29 +3,7 @@
     <!-- 第三方登录信息 -->
     <AppLoginOther></AppLoginOther>
     <!-- 登录表单 -->
-    <div class="login-form">
-      <ul class="login-form-list">
-        <li>
-          <input class="ipt" type="text" placeholder="请输入手机号">
-        </li>
-        <li>
-          <input class="ipt ipt-min" type="text" placeholder="请输入密码">
-          <a class="btn-send" href="javascript:">免费获取验证码</a>
-        </li>
-        <li>
-          <input class="ipt" type="password" placeholder="请输入密码">
-        </li>
-        <li>
-          <label for="loginAuto">
-            <input id="loginAuto" type="checkbox">
-            <span>我已阅读并且同意<a href="javascript:">美食杰用户使用协议</a></span>
-          </label>
-        </li>
-        <li class="tc">
-          <a class="login-btn" href="javascript:">注册</a>
-        </li>
-      </ul>
-    </div>
+    <AppRegisterForm></AppRegisterForm>
 
     <a class="login-swicth" href="#/login">已有账号？马上登录</a>
   </div>
@@ -33,9 +11,10 @@
 
 <script>
   import AppLoginOther from '../components/appLoginOther.vue'
+  import AppRegisterForm from '../components/appRegisterForm.vue'
   export default {
     name: 'register',
-    components: { AppLoginOther }
+    components: { AppLoginOther, AppRegisterForm }
   }
 </script>
 
@@ -68,7 +47,7 @@
       text-align: center;
       color: #333;
       font-size: 15px;
-      @include in-block; 
+      @include in-block;
     }
   }
   .login-form-list{
@@ -97,20 +76,20 @@
 	    color: #999;
     }
     .ipt{
-      height: 22px;
+      height: 46px;
       border: 1px solid #ddd;
       border-radius: 4px;
       line-height: 22px;
       font-size: 14px;
       color: #333;
       padding: 11px;
-      width: 296px;
+      width: 320px;
       font-family: "Hiragino Sans GB", "冬青黑体", "Microsoft Yahei", "微软雅黑";
       &:focus{
         border-color: #60a531;
       }
 	    &.ipt-min{
-	    	width: 150px;
+	    	width: 170px;
 	    }
     }
   }

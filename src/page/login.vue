@@ -3,25 +3,7 @@
     <!-- 第三方登录信息 -->
     <AppLoginOther></AppLoginOther>
     <!-- 登录表单 -->
-    <div class="login-form">
-      <ul class="login-form-list">
-        <li>
-          <input class="ipt" type="text" placeholder="请输入手机号/邮箱/昵称">
-        </li>
-        <li>
-          <input class="ipt" type="password" placeholder="请输入密码">
-        </li>
-        <li>
-          <label for="loginAuto">
-            <input id="loginAuto" type="checkbox">
-            <span>下次自动登录</span>
-          </label>
-        </li>
-        <li class="tc">
-          <a class="login-btn" href="javascript:">登录</a>
-        </li>
-      </ul>
-    </div>
+    <AppLoginForm></AppLoginForm>
 
     <a class="login-swicth" href="#/register">还没有账号？免费注册</a>
   </div>
@@ -29,15 +11,15 @@
 
 <script>
   import AppLoginOther from '../components/appLoginOther.vue'
+  import AppLoginForm from '../components/appLoginForm.vue'
   export default {
     name: 'login',
-    components: { AppLoginOther }
+    components: { AppLoginOther, AppLoginForm }
   }
 </script>
 
 <style lang="scss">
   @import '../style/base/common.scss';
-
   .login{
     overflow: hidden;
     margin-top: 40px;
@@ -64,7 +46,7 @@
       text-align: center;
       color: #333;
       font-size: 15px;
-      @include in-block; 
+      @include in-block;
     }
   }
   .login-form-list{
@@ -78,7 +60,7 @@
       }
     }
     .ipt{
-      height: 22px;
+      height: 46px;
       border: 1px solid #ddd;
       border-radius: 4px;
       line-height: 22px;

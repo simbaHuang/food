@@ -1,10 +1,13 @@
 <template>
   	<div class="container">
   		<!-- banner -->
-      <AppBanner></AppBanner>
+      <!-- <AppBanner></AppBanner> -->
+
+      <!-- banner -->
+      <Banner></Banner>
 
 			<!-- 首页的广告 -->
-			<AppSwiperColThree></AppSwiperColThree>
+      <AppSwiperBlock :params="conThree"></AppSwiperBlock>
 
 			<!-- 当月食材推荐 -->
 			<div class="home-recommend">
@@ -32,7 +35,7 @@
 			</div>
 
       <!-- 最新菜谱 -->
-      <AppSwiperColFour></AppSwiperColFour>
+      <AppSwiperBlock :params="conFour"></AppSwiperBlock>
 
       <!-- 健康新闻 -->
       <div class="home-news">
@@ -55,11 +58,11 @@
 </template>
 
 <script>
-import AppBanner from '../components/appBanner.vue'
-import AppSwiperColThree from '../components/appSwiperColThree.vue'
-import AppSwiperColFour from '../components/appSwiperColFour.vue'
+// import AppBanner from '../components/appBanner.vue'
+import AppSwiperBlock from '../components/appSwiperBlock.vue'
+import Banner from '../components/banner.vue'
 export default {
-  components: { AppBanner, AppSwiperColThree, AppSwiperColFour },
+  components: { AppSwiperBlock, Banner },
   data () {
     return {
       recommendList: [
@@ -281,7 +284,126 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      conThree: {
+        title: '10月，晚秋时节润燥滋阴',
+        data: [
+          {
+            name: '这里有一份超详尽的假期派对攻略',
+            tit: '超详尽的派对攻略',
+            imgUrl: 'http://images.meishij.net/p/20170927/eb45ef48e2be5d6b9fd6942a3046861a.jpg'
+          },
+          {
+            name: '中秋就要到了，然而',
+            tit: '小编们却为月饼掐了一场架',
+            imgUrl: 'http://images.meishij.net/p/20170925/6ac39c5f33030ec9d1d5d678d72fd3ec.jpg'
+          },
+          {
+            name: '一学即会的水煮肉片',
+            tit: '水煮肉片一学即会',
+            imgUrl: 'http://site.meishij.net/p2/20170928/20170928102723_514.jpg'
+          },
+          {
+            name: '秋季养生蔬菜就选这五...',
+            tit: '秋季养生蔬菜就选这五种',
+            imgUrl: 'http://site.meishij.net/p2/20170928/20170928102237_755.jpg'
+          },
+          {
+            name: '盖浇饭，填饱肚子最重...',
+            tit: '盖浇饭，填饱肚子最重要',
+            imgUrl: 'http://site.meishij.net/p2/20170926/20170926140512_647.jpg'
+          },
+          {
+            name: '选蟹、烹饪有何门道？...',
+            tit: '60s教你吃对大闸蟹',
+            imgUrl: 'http://site.meishij.net/p2/20170920/20170920134551_173.jpg'
+          }
+        ],
+        type: 'three'
+      },
+      conFour: {
+        title: '最新菜谱',
+        data: [
+          {
+            name: '法式紫薯派',
+            author: '余甘果蜜',
+            comments: 5,
+            sentiment: 16221,
+            step: 8,
+            time: 15,
+            practice: '炸',
+            taste: '甜味',
+            imgUrl: 'http://site.meishij.net/r/174/213/2303424/a2303424_150737235953308.jpg'
+          },
+          {
+            name: '无蛋可可螺旋吐司',
+            author: '喜爱豆子',
+            comments: 5,
+            sentiment: 2394,
+            step: 9,
+            time: 15,
+            practice: '烘培',
+            taste: '其他口味',
+            imgUrl: 'http://site.meishij.net/r/75/127/4906825/a4906825_150737187413411.jpg'
+          },
+          {
+            name: '大闸蟹溜蛋',
+            author: '柔蓝水晶',
+            comments: 5,
+            sentiment: 16221,
+            step: 8,
+            time: 15,
+            practice: '炒',
+            taste: '家常味',
+            imgUrl: 'http://site.meishij.net/r/83/142/410583/a410583_150737118116813.jpg'
+          },
+          {
+            name: '苦瓜苹果饮',
+            author: '余甘果蜜',
+            comments: 5,
+            sentiment: 16221,
+            step: 8,
+            time: 15,
+            practice: '其他工艺',
+            taste: '其他口味',
+            imgUrl: 'http://site.meishij.net/r/174/213/2303424/a2303424_150737068931194.jpg'
+          },
+          {
+            name: '辣椒木耳炒蛋',
+            author: '心随彧动',
+            comments: 5,
+            sentiment: 16221,
+            step: 8,
+            time: 15,
+            practice: '炒',
+            taste: '香辣味',
+            imgUrl: 'http://site.meishij.net/r/216/197/6174466/a6174466_150736713955415.jpg'
+          },
+          {
+            name: '豉香蟹',
+            author: '飘雪的季节(来自腾讯的网友)',
+            comments: 5,
+            sentiment: 16221,
+            step: 8,
+            time: 15,
+            practice: '炒',
+            taste: '香辣味',
+            imgUrl: 'http://site.meishij.net/r/134/61/5140384/a5140384_150736675971749.jpg'
+          },
+          {
+            name: '麻酱佛手瓜丝莲藕卷',
+            author: '上海五香豆',
+            comments: 5,
+            sentiment: 16221,
+            step: 8,
+            time: 15,
+            practice: '煮',
+            taste: '家常味',
+            imgUrl: 'http://site.meishij.net/r/178/57/3764428/a3764428_150736514942427.jpg'
+          }
+        ],
+        type: 'four'
+      }
     }
   },
   created () {
